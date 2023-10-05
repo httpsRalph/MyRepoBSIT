@@ -1,56 +1,190 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf8">
-    <meta name="viewport" content="content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-      <div class="container">
-        <header class="header">
-          <h1 id="title" class="text-center">CEU Student feedback</h1>
-          <p id="description" class="description text-center">
-            Thank You for taking the time to help us improve our service </p>
-            </header>
-    <form id="survey-form">
-      <div class="form-group">
-        <label id="name-label" for="name">Name 
-          </label>
-          <input type="text" id="name" class="form-control" placeholder="Enter your name" name="name" required=""/>
-      </div>
-      <div class="form-group">
-        <label id="email-label" for="email">Email
-          </label>
-          <input type="email" id="email" class="form-control" placeholder="Enter your Email" name="email" required=""/>
-      </div>
-      <div class="form-group">
-        <label id="number-label" for="number">Age
-          <span class="clue">(optional)</span>
-          </label>
-          <input type="number" id="number" class="form-control"  min="10" max="99"  placeholder="age" name="age"/>
-      </div>
-      <div class="form-group">
-        <p>College</p>
-        <select id="dropdown" class="form-control" name="role" required="" />
-        <option disabled="" selected="" value="">Select College</option>
-        <option value="camt">CAMT</option>
-        <option value="celas">CELAS</option>
-        <option value="chm">CHM</option>
-        <option value="pharmacy">Pharmacy</option>
-        <option value="dentistry">Dentistry</option>
-        <option value="nursing">Nursing</option>
-        <option value="opthalmology">Opthalmology</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <p>Would you recommend Centro Escolar University?</p>
-        <label><input type="radio" class="input-radio" name="user-recommend" value="definitely" checked=""/>Definitely
-        </label>
-        <label>
-          <input type="radio" class="input-radio" name="user-recommend" value="not-sure">Not sure
-        </label>
-      </div>
-      <div class="form-group">
-       <label for="bio"><span>Suggestion(s)
-          <textarea id="bio" name="bio" rows="3" cols="30" placeholder="Recommendations and Suggestions"></textarea></span>
-        </label> 
+@import url('https://fonts.googleais.com/css?family=Poppins:200i,400&display=swap');
+
+:root {
+  --color-white: #f3f3f3;
+  --color-darkblue: #1b1b32;
+  --color-darkblue-alpha: rgba(35, 0, 85, 0.8);
+  --color-green: #37af65;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-white);
+  margin: 0;
+}
+
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background: var(--color-darkblue);
+  background-image: linear-gradient(
+      115deg,
+      rgba(255, 78, 158, 0.8),
+      rgba(136, 136, 255, 0.6)
+    ),
+    url(https://i0.wp.com/farm4.static.flickr.com/3162/2709399933_3f12a6ea00.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+h1 {
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+p {
+  font-size: 1.125rem;
+}
+
+h1,
+p {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+input,
+button,
+select,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+button {
+  border: none;
+}
+
+.container {
+  width: 100%;
+  margin: 3.125rem auto 0 auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+.header {
+  padding: 0 0.625rem;
+  margin-bottom: 1.875rem;
+}
+
+.description {
+  font-style: italic;
+  font-weight: 200;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.clue {
+  margin-left: 0.25rem;
+  font-size: 0.9rem;
+  color: #e4e4e4;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* form */
+
+form {
+  background: var(--color-darkblue-alpha);
+  padding: 2.5rem 0.625rem;
+  border-radius: 0.25rem;
+}
+
+@media (min-width: 480px) {
+  form {
+    padding: 2.5rem;
+  }
+}
+
+.form-group {
+  margin: 0 auto 1.25rem auto;
+  padding: 0.25rem;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: 2.375rem;
+  padding: 0.375rem 0.75rem;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.input-radio,
+.input-checkbox {
+  display: inline-block;
+  margin-right: 0.625rem;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
+}
+
+.input-textarea {
+  min-height: 120px;
+  width: 100%;
+  padding: 0.625rem;
+  resize: vertical;
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--color-green);
+  color: inherit;
+  border-radius: 2px;
+  cursor: pointer;
+}
+textarea {
+  background-color:white;
+  border: 1px solid #0a0a23;
+  color: #495057;
+}
+textarea{
+  margin: 10px 0 0 0;
+  width: 100%;
+  min-height: 2em;
