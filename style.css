@@ -295,15 +295,24 @@ body{
     animation-delay:3s;
     z-index: 100;
 }
-
-ul a{
-    position: absolute;
+/* UL HOVER  */
+ul a{ 
+    position: relative;
+    width: 150px;
+    height: 100%;
+    color: #ebebeb;
     text-decoration: none;
-    color: #ededed;
+    font-weight: 500;
+    letter-spacing: 1px;
+    z-index: 100;
+    overflow: hidden;
+    transition: .5s;
 }
 
 ul a:hover{
     color: #00abf0;
+    text-decoration: underline;
+    transition: 1s;
     
 }
 
@@ -318,7 +327,7 @@ ul a:hover{
     animation: showRight 1s ease forwards;
     animation-delay:1.3s;
     z-index: 100;
-}
+ }  
 
 /* KEYFRAMES ANIMATION */
 
